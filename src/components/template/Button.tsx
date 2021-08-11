@@ -34,7 +34,7 @@ export const AppButton = (props: ButtonProps) => {
         {props.iconName && (
             <Icon size={wp(5)} style={{marginRight: wp(1)}} color={WHITE} name={props.iconName} />
         )}
-        <BoldText style={[{color: WHITE, fontSize: wp(4), top: -3, alignSelf: 'center'}, props.textStyle]}>
+        <BoldText style={[{color: WHITE, fontSize: wp(4), alignSelf: 'center'}, props.textStyle]}>
             {props.title}
         </BoldText>
       </TouchableOpacity>

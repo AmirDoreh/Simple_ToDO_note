@@ -10,6 +10,7 @@ const baseStyles = StyleSheet.create({
     },
     content: {
         flex: 1,
+        paddingTop: wp(5),
         backgroundColor: Colors.BACKGROUND
     },
     centerView: {

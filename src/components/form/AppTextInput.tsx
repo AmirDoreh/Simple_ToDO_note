@@ -53,7 +53,7 @@ const AppTextInput = (props: InputProps) => {
         </RegularText>
       )}
       <TextInput
-        style={[{flex: 1, textAlign: props.type === 'phoneNumber' ? 'left' : 'right', paddingHorizontal: wp(2), fontFamily: 'Frutiger LT Arabic 55 Roman', fontSize: wp(3.8)}, props.style]}
+        style={[{flex: 1, textAlign: props.type === 'phoneNumber' ? 'left' : 'right', paddingHorizontal: wp(2), ontSize: wp(3.8)}, props.style]}
         editable={props.editable}
         secureTextEntry={props.type === 'password'}
         onChangeText={onChanged}

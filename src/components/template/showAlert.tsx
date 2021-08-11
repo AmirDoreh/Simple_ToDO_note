@@ -15,7 +15,7 @@ export const showAlert = (props: AProps) => {
         onPress: props.onPress,
         message: props.title,
         description: props.description,
-        titleStyle: {fontFamily: 'DIN Next LT Arabic Bold', textAlign: 'right'},
-        textStyle: {fontFamily: 'Frutiger LT Arabic 55 Roman', textAlign: 'right'}
+        titleStyle: {textAlign: 'right'},
+        textStyle: {textAlign: 'right'}
     })
 }

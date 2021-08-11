@@ -5,22 +5,21 @@ import {
   KeyboardAvoidingView,
   ScrollView,
 } from 'react-native';
-import * as Colors from '../../themes/colors';
+import * as Colors from '../themes/colors';
 import {useDispatch, useSelector} from 'react-redux';
-import {hp, wp} from '../../utils/screenResize';
+import {hp, wp} from '../utils/screenResize';
 import {
   BackIcon,
   BoldText,
-} from '../../components';
+} from '../components';
 import {
-  add_note_action,
-} from '../../redux/apiCall/apiActions';
-import ProfileIcon from '../../components/icons/ProfileIcon';
-import baseStyles from '../../themes/styles/base';
-import { RootState } from '../../redux/store';
-import { AppButton } from '../../components/template/Button';
-import AppTextArea from '../../components/form/AppTextArea';
-import { showAlert } from '../../components/template/showAlert';
+  add_note_action, edit_note_action,
+} from '../redux/apiCall/apiActions';
+import baseStyles from '../themes/styles/base';
+import { RootState } from '../redux/store';
+import { AppButton } from '../components/template/Button';
+import AppTextArea from '../components/form/AppTextArea';
+import { showAlert } from '../components/template/showAlert';
 import { useNavigation } from '@react-navigation/native';
 
 const AddNoteScreen: React.FC = () => {
@@ -28,6 +27,7 @@ const AddNoteScreen: React.FC = () => {
   const navigation = useNavigation();
   const selectedNote = useSelector((state: RootState) => state.tempStateReducer.selectedNote);
   const [abstract, setAbstract] = useState(selectedNote ? selectedNote.text : '');
+  const notes = useSelector((state: RootState) => state.tempStateReducer.notes);
 
   
   const [isLoading, setIsLoading] = useState(false);
@@ -40,7 +40,7 @@ const AddNoteScreen: React.FC = () => {
       showAlert({title: 'Attention', description: 'Please complete abstract', type: 'danger'})
     } else {
       setIsLoading(true)
-      await dispatch(add_note_action(abstract))
+      await dispatch(selectedNote ? edit_note_action(selectedNote.id, abstract, notes) : add_note_action(abstract, notes))
       setIsLoading(false)
       navigation.goBack()
     }
@@ -55,7 +55,6 @@ const AddNoteScreen: React.FC = () => {
           </View>
           <BoldText style={baseStyles.headerTitle}>New Note</BoldText>
           <View style={baseStyles.headerRight}>
-            <ProfileIcon />
           </View>
         </View>
         <View style={baseStyles.content}>

@@ -43,7 +43,7 @@ const AppTextArea = (props: InputProps) => {
         </RegularText>
       )}
       <TextInput
-        style={{height: hp(15), width: '100%', marginHorizontal: wp(2), paddingHorizontal: wp(4), flex: 2, textAlign: 'right', alignItems: 'flex-start', fontFamily: 'Frutiger LT Arabic 55 Roman', fontSize: wp(3.8)}}
+        style={{height: hp(15), width: '100%', marginHorizontal: wp(2), paddingHorizontal: wp(4), flex: 2, textAlign: 'right', alignItems: 'flex-start', fontSize: wp(3.8)}}
         multiline={true}
         editable={props.editable}
         secureTextEntry={props.type === 'password'}
